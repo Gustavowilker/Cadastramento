@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/PagesGerente/performance.dart';
 import 'package:flutter_application_1/Pages/home_page.dart';
+
+import 'Pages/loginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +18,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: const Color.fromARGB(255, 111, 10, 120),
         ),
-        home: HomePage());
+        initialRoute: '/',
+        routes: {
+          '/': (context) => loginPage(),
+          '/home': (context) => HomePage(),
+          '/performance':(context) => performancePage(),
+        },
+        );
   }
 }

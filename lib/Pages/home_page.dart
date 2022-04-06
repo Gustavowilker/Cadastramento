@@ -18,7 +18,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AppBar'),
-        backgroundColor: const Color.fromARGB(255, 111, 10, 120),
+        backgroundColor: Color.fromARGB(255, 62, 164, 211),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            Container(
+              child: DrawerHeader(
+                child: CircleAvatar(),
+              ),
+            ),
+          ],
+        ),
       ),
       body: PageView(
         controller: _pageController,
