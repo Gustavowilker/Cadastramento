@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/avisoGerentePage.dart';
-import 'package:flutter_application_1/Pages/home_page.dart';
-import 'package:flutter_application_1/Pages/loginPage.dart';
+import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
+import 'package:flutter_application_1/Pages/loginPage/loginPage.dart';
 
 class performancePage extends StatefulWidget {
   const performancePage({Key? key}) : super(key: key);

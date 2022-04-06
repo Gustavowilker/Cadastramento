@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/loginPage/cadastre.dart';
 
 class loginPage extends StatefulWidget {
-
   @override
   State<loginPage> createState() => _loginPageState();
 }
 
 class _loginPageState extends State<loginPage> {
-
   String email = '';
   String password = '';
 
@@ -81,7 +80,24 @@ class _loginPageState extends State<loginPage> {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              child: Text(
+                                'Cadastre-se',
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return cadastre();
+                              }));
+                            },
+                          ),
                         ],
                       ),
                     ),

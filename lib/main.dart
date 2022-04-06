@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/performance.dart';
-import 'package:flutter_application_1/Pages/home_page.dart';
+import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
 
-import 'Pages/loginPage.dart';
+import 'Pages/loginPage/loginPage.dart';
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesView/Avisos_page.dart';
 
 
-import 'PagesView/Tarefas_page.dart';
+import 'Tarefas_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
