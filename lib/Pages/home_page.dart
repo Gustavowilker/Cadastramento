@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/PagesView/one_page.dart';
+import 'package:flutter_application_1/Pages/PagesView/Avisos_page.dart';
+
+
+import 'PagesView/Tarefas_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,43 +19,57 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF5F5F5),
       appBar: AppBar(
-        title: const Text('AppBar'),
-        backgroundColor: Color.fromARGB(255, 62, 164, 211),
+        title: const Text('App da firma'),
+        backgroundColor: const Color(0xff062C30),
       ),
       drawer: Drawer(
         child: ListView(
-          children: <Widget>[
-            Container(
-              child: DrawerHeader(
-                child: CircleAvatar(),
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text('UserName'),
+              accountEmail: Text('User.name@exemple.com'),
+              currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://img.freepik.com/vetores-gratis/astronauta-bonito-flying-with-rocket-cartoon-icon-illustration-pessoas-ciencia-icone-conceito-isolado-premium-estilo-cartoon-plana_138676-1534.jpg?w=740')),
+            ),
+            ListTile(
+              title: const Text(
+                'Avisos',
+                style: TextStyle(fontSize: 18),
               ),
+              trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                _pageController.jumpToPage(0);
+                Navigator.pop(context);
+                setState(() {
+                  indexBottomNavigationBar = 0;
+                });
+              },
+            ),
+            ListTile(
+              title: const Text(
+                'Tarefas',
+                style: TextStyle(fontSize: 18),
+              ),
+              trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                _pageController.jumpToPage(1);
+                Navigator.pop(context);
+                setState(() {
+                  indexBottomNavigationBar = 1;
+                });
+              },
             ),
           ],
         ),
       ),
       body: PageView(
         controller: _pageController,
-        children: [
-          const OnePage(),
-          Container(color: Colors.yellow),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: indexBottomNavigationBar,
-        onTap: (int page) {
-          setState(() {
-            indexBottomNavigationBar = page;
-          });
-          _pageController.animateToPage(page,
-              duration: const Duration(milliseconds: 350),
-              curve: Curves.easeInCirc);
-        },
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.local_laundry_service_sharp), label: "item 01"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.local_laundry_service_sharp), label: "item 02"),
+        children: const [
+          Avisos(),
+          Tarefas(),
         ],
       ),
     );
