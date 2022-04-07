@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/performance.dart';
 import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
+import 'package:flutter_application_1/provider/users.dart';
+import 'package:provider/provider.dart';
 
 import 'Pages/loginPage/loginPage.dart';
 
@@ -13,17 +15,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Users(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => loginPage(),
+          '/home': (context) => HomePage(),
+          '/performance': (context) => performancePage(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => loginPage(),
-        '/home': (context) => HomePage(),
-        '/performance': (context) => performancePage(),
-      },
     );
   }
 }

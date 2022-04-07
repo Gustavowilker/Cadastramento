@@ -12,4 +12,30 @@ class Users with ChangeNotifier {
   int get count {
     return _itens.length;
   }
+
+  User byIndex(int i) {
+    return _itens.values.elementAt(i);
+  }
+
+  void put(User user) {
+    if (user == null) {
+      return;
+    }
+
+    _itens.putIfAbsent(
+        '100',
+        () => User(
+            id: '100',
+            name: 'Teste',
+            email: 'teste@teste.com',
+            cpf: '000.000.000-05',
+            funcao: 'Colaborador',
+            password: '1234',
+            avatarUrl: ''));
+
+    //adicionar
+    //alterar
+
+    //notifyListeners();
+  }
 }
