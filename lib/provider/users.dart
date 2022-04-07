@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/dummy_users.dart';
 import 'package:flutter_application_1/models/user.dart';
@@ -22,20 +24,34 @@ class Users with ChangeNotifier {
       return;
     }
 
-    _itens.putIfAbsent(
-        '100',
-        () => User(
-            id: '100',
-            name: 'Teste',
-            email: 'teste@teste.com',
-            cpf: '000.000.000-05',
-            funcao: 'Colaborador',
-            password: '1234',
-            avatarUrl: ''));
+    if (user.id != null &&
+        user.id.trim().isNotEmpty &&
+        _itens.containsKey(user.id)) {
+      _itens.update(user.id, (_) => user);
+    } else {
+      final id = Random().nextDouble().toString();
+      _itens.putIfAbsent(
+          '100',
+          () => User(
+              id: id,
+              name: user.name,
+              email: user.email,
+              cpf: user.cpf,
+              funcao: user.funcao,
+              password: user.password,
+              avatarUrl: user.avatarUrl));
 
-    //adicionar
-    //alterar
+      //adicionar
+      //alterar
 
-    //notifyListeners();
+      notifyListeners();
+    }
+
+    void remove(User user) {
+      if (user != null && user.id != null) {
+        _itens.remove(user.id);
+        notifyListeners();
+      }
+    }
   }
 }
