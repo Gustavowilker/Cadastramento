@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/avisoGerentePage.dart';
+import 'package:flutter_application_1/Pages/PagesGerente/page_usuarios.dart';
 import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
 import 'package:flutter_application_1/Pages/loginPage/loginPage.dart';
 
@@ -56,6 +57,11 @@ class _performancePageState extends State<performancePage> {
               ListTile(
                 leading: Icon(Icons.accessibility_outlined),
                 title: Text('Colaboradores'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return page_usuario();
+                  }));
+                },
               ),
             ],
           ),
