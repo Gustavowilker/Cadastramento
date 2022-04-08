@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/performance.dart';
 import 'package:flutter_application_1/Pages/PagesUser/home_page.dart';
+import 'package:flutter_application_1/Pages/loginPage/cadastre.dart';
 import 'package:flutter_application_1/provider/users.dart';
+import 'package:flutter_application_1/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 import 'Pages/loginPage/loginPage.dart';
@@ -31,6 +33,9 @@ class MyApp extends StatelessWidget {
           '/': (context) => loginPage(),
           '/home': (context) => const HomePage(),
           '/performance': (context) => const performancePage(),
+          AppRoutes.HOME:(_) => HomePage(),
+          AppRoutes.PERFORMANCE:(_) => performancePage(),
+          AppRoutes.CADASTRE:(_) => cadastre()
         },
       ),
     );

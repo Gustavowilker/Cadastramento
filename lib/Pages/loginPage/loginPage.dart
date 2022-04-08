@@ -98,7 +98,7 @@ class _loginPageState extends State<loginPage> {
                             onTap: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                return const cadastre();
+                                return cadastre();
                               }));
                             },
                           ),
