@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/PagesView/Avisos_page.dart';
+import 'package:flutter_application_1/Pages/PagesUser/Avisos_page.dart';
 
-
+import '../loginPage/loginPage.dart';
 import 'Tarefas_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,10 +22,19 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color(0xffF5F5F5),
       appBar: AppBar(
         title: const Text('App da firma'),
-        backgroundColor: const Color(0xff062C30),
+        backgroundColor: const Color.fromARGB(255, 7, 69, 76),
+        actions: [
+          PopupMenuButton<int>(
+              onSelected: (item) => onSelected(context, item),
+              itemBuilder: (context) => [
+                    const PopupMenuItem(
+                        value: 0, child: Center(child: Text('SAIR')))
+                  ]),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text('UserName'),
@@ -73,5 +82,15 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+}
+
+onSelected(BuildContext context, int item) {
+  switch (item) {
+    case 0:
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => loginPage()));
+      break;
+    default:
   }
 }

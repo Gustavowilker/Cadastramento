@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/avisoGerentePage.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/page_usuarios.dart';
-import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
 import 'package:flutter_application_1/Pages/loginPage/loginPage.dart';
 
 class performancePage extends StatefulWidget {
@@ -17,7 +16,15 @@ class _performancePageState extends State<performancePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Performances'),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(255, 7, 69, 76),
+        actions: [
+          PopupMenuButton<int>(
+              onSelected: (item) => onSelected(context, item),
+              itemBuilder: (context) => [
+                    const PopupMenuItem(
+                        value: 0, child: Center(child: Text('SAIR')))
+                  ]),
+        ],
       ),
       drawer: Builder(
         builder: (context) => Drawer(
@@ -35,14 +42,14 @@ class _performancePageState extends State<performancePage> {
                         'https://img.freepik.com/vetores-gratis/astronauta-bonito-flying-with-rocket-cartoon-icon-illustration-pessoas-ciencia-icone-conceito-isolado-premium-estilo-cartoon-plana_138676-1534.jpg?w=740')),
               ),
               ListTile(
-                leading: Icon(Icons.add_chart),
+                leading: const Icon(Icons.add_chart),
                 title: Text('Performance'),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.add_alert_outlined),
+                leading: const Icon(Icons.add_alert_outlined),
                 title: Text('Avisos'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -50,16 +57,16 @@ class _performancePageState extends State<performancePage> {
                   }));
                 },
               ),
-              ListTile(
+              const ListTile(
                 leading: Icon(Icons.app_registration_outlined),
                 title: Text('Tarefas'),
               ),
               ListTile(
-                leading: Icon(Icons.accessibility_outlined),
-                title: Text('Colaboradores'),
+                leading: const Icon(Icons.accessibility_outlined),
+                title: const Text('Colaboradores'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return page_usuario();
+                    return const page_usuario();
                   }));
                 },
               ),
@@ -68,5 +75,15 @@ class _performancePageState extends State<performancePage> {
         ),
       ),
     );
+  }
+}
+
+onSelected(BuildContext context, int item) {
+  switch (item) {
+    case 0:
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => loginPage()));
+      break;
+    default:
   }
 }

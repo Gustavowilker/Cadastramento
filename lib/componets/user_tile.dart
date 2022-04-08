@@ -9,24 +9,24 @@ class UserTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final avatar = user.avatarUrl == null || user.avatarUrl.isEmpty
-        ? CircleAvatar(child: Icon(Icons.person))
+        ? const CircleAvatar(child: Icon(Icons.person))
         : CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl));
     return ListTile(
       leading: avatar,
       title: Text(user.name),
       subtitle: Text(user.funcao),
-      trailing: Container(
+      trailing: SizedBox(
         width: 100,
         child: Row(
           children: <Widget>[
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
               color: Colors.orange,
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               color: Colors.red,
             )
           ],

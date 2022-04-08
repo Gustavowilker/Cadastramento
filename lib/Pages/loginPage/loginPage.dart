@@ -1,7 +1,11 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/loginPage/cadastre.dart';
 
 class loginPage extends StatefulWidget {
+  const loginPage({Key? key}) : super(key: key);
+
   @override
   State<loginPage> createState() => _loginPageState();
 }
@@ -11,7 +15,7 @@ class _loginPageState extends State<loginPage> {
   String password = '';
 
   Widget _body() {
-    return Column(
+    return Column(    
       children: [
         SingleChildScrollView(
           child: SizedBox(
@@ -94,7 +98,7 @@ class _loginPageState extends State<loginPage> {
                             onTap: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                return cadastre();
+                                return const cadastre();
                               }));
                             },
                           ),
@@ -118,6 +122,7 @@ class _loginPageState extends State<loginPage> {
         children: [
           SizedBox(
             height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             child: Image.asset(
               'assets/imagens/papelParede_login.jpg',
               fit: BoxFit.cover,

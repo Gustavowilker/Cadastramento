@@ -7,13 +7,12 @@ class User {
   final String password;
   final String avatarUrl;
 
-  const User({
-      required this.id,
+  const User(
+      {required this.id,
       required this.name,
       required this.email,
       required this.cpf,
       required this.funcao,
       required this.password,
-      required this.avatarUrl
-      });
+      required this.avatarUrl});
 }

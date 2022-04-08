@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/PagesGerente/performance.dart';
-import 'package:flutter_application_1/Pages/PagesView/home_page.dart';
+import 'package:flutter_application_1/Pages/PagesUser/home_page.dart';
 import 'package:flutter_application_1/provider/users.dart';
 import 'package:provider/provider.dart';
 
@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.teal,
         ),
         initialRoute: '/',
         routes: {
           '/': (context) => loginPage(),
-          '/home': (context) => HomePage(),
-          '/performance': (context) => performancePage(),
+          '/home': (context) => const HomePage(),
+          '/performance': (context) => const performancePage(),
         },
       ),
     );

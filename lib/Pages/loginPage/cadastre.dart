@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class cadastre extends StatefulWidget {
@@ -19,26 +21,26 @@ class _cadastreState extends State<cadastre> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastre-se'),
+        title: const Text('Cadastre-se'),
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Container(
-              child: Text(
+              child: const Text(
                 'Informe seus dados e Matricula para ter acesso às Tarefas:',
                 textAlign: TextAlign.center,
               ),
             ),
           ),
           Card(
-            color: Color.fromARGB(255, 174, 200, 212),
+            color: const Color.fromARGB(255, 174, 200, 212),
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'Nome Completo:',
                     textAlign: TextAlign.left,
                   ),
@@ -46,7 +48,7 @@ class _cadastreState extends State<cadastre> {
                     onChanged: (Text) {
                       nome = Text;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'ex.: Maria dos Santos Santos'),
                   ),
                 ],

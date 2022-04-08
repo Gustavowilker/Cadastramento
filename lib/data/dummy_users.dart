@@ -1,7 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter_application_1/models/user.dart';
 
 const DUMMY_USERS = {
-  '1': const User(
+  '1':  User(
       id: '1',
       name: 'Gustavo',
       email: 'email@gmail.com',
@@ -10,7 +12,7 @@ const DUMMY_USERS = {
       password: '1234',
       avatarUrl:
           'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819_960_720.png'),
-  '2': const User(
+  '2':  User(
       id: '2',
       name: 'Leonardo Otto',
       email: 'maria@gmail.com',
@@ -19,7 +21,7 @@ const DUMMY_USERS = {
       password: '1234',
       avatarUrl:
           'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png'),
-  '3': const User(
+  '3':  User(
       id: '3',
       name: 'Mary',
       email: 'Mary@gmail.com',
@@ -28,7 +30,7 @@ const DUMMY_USERS = {
       password: '1234',
       avatarUrl:
           'https://cdn.pixabay.com/photo/2016/04/01/12/11/avatar-1300582_960_720.png'),
-  '4': const User(
+  '4':  User(
       id: '4',
       name: 'Guilherme Lourenço',
       email: 'guilherme@gmail.com',
