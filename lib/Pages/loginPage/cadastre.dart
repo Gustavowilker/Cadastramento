@@ -3,12 +3,33 @@ import 'package:flutter_application_1/models/user.dart';
 import 'package:flutter_application_1/provider/users.dart';
 import 'package:provider/provider.dart';
 
-class cadastre extends StatelessWidget {
+class cadastre extends StatefulWidget {
+  @override
+  State<cadastre> createState() => _cadastreState();
+}
+
+class _cadastreState extends State<cadastre> {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
 
+  void _loadFormData(User user) {
+    if (user != null) {
+      _formData['matricula'] = user.id;
+      _formData['name'] = user.name;
+      _formData['cpf'] = user.cpf;
+      _formData['email'] = user.email;
+      _formData['password'] = user.password;
+      _formData['funcao'] = user.funcao;
+      _formData['avatarUrl'] = user.avatarUrl;
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = ModalRoute.of(context)?.settings.arguments as User;
+    _loadFormData(user);
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Cadastro'),
@@ -42,6 +63,7 @@ class cadastre extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  initialValue: _formData['name'],
                   decoration: InputDecoration(labelText: 'Nome'),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
@@ -54,27 +76,33 @@ class cadastre extends StatelessWidget {
                   onSaved: (value) => _formData['name'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['cpf'],
                   decoration: InputDecoration(labelText: 'CPF'),
                   onSaved: (value) => _formData['cpf'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['matricula'],
                   decoration: InputDecoration(labelText: 'Nº de Matrícula'),
                   onSaved: (value) => _formData['matricula'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['email'],
                   decoration: InputDecoration(labelText: 'E-mail'),
                   onSaved: (value) => _formData['email'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['password'],
                   decoration: InputDecoration(labelText: 'Senha'),
                   obscureText: true,
                   onSaved: (value) => _formData['password'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['funcao'],
                   decoration: InputDecoration(labelText: 'Função'),
                   onSaved: (value) => _formData['funcao'] = value.toString(),
                 ),
                 TextFormField(
+                  initialValue: _formData['avatarUrl'],
                   decoration: InputDecoration(labelText: 'Url do Avatar'),
                   onSaved: (value) => _formData['avatarUrl'] = value.toString(),
                 ),
