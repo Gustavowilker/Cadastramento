@@ -13,22 +13,22 @@ class _cadastreState extends State<cadastre> {
   final Map<String, String> _formData = {};
 
   void _loadFormData(User user) {
-    if (user != null) {
-      _formData['matricula'] = user.id;
-      _formData['name'] = user.name;
-      _formData['cpf'] = user.cpf;
-      _formData['email'] = user.email;
-      _formData['password'] = user.password;
-      _formData['funcao'] = user.funcao;
-      _formData['avatarUrl'] = user.avatarUrl;
-    }
-    return null;
+    _formData['matricula'] = user.id;
+    _formData['name'] = user.name;
+    _formData['cpf'] = user.cpf;
+    _formData['email'] = user.email;
+    _formData['password'] = user.password;
+    _formData['funcao'] = user.funcao;
+    _formData['avatarUrl'] = user.avatarUrl;    
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = ModalRoute.of(context)?.settings.arguments as User;
-    _loadFormData(user);
+    final User? user = ModalRoute.of(context)!.settings.arguments as User?;
+
+    if (user != null) {
+      _loadFormData(user);
+    }
 
     return Scaffold(
         appBar: AppBar(
@@ -91,7 +91,6 @@ class _cadastreState extends State<cadastre> {
                   onSaved: (value) => _formData['email'] = value.toString(),
                 ),
                 TextFormField(
-                  initialValue: _formData['password'],
                   decoration: InputDecoration(labelText: 'Senha'),
                   obscureText: true,
                   onSaved: (value) => _formData['password'] = value.toString(),
