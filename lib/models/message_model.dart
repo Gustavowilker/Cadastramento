@@ -7,9 +7,9 @@ class Menssage {
   final bool unread;
 
   Menssage(
-    this.sender, 
-    this.time, 
-    this.text, 
+    this.sender,
+    this.time,
+    this.text,
     this.unread,
-    );
+  );
 }
