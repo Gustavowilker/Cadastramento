@@ -19,7 +19,7 @@ class _cadastreState extends State<cadastre> {
     _formData['email'] = user.email;
     _formData['password'] = user.password;
     _formData['funcao'] = user.funcao;
-    _formData['avatarUrl'] = user.avatarUrl;    
+    _formData['avatarUrl'] = user.avatarUrl;
   }
 
   @override

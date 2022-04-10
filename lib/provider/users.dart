@@ -28,12 +28,12 @@ class Users with ChangeNotifier {
         user.id.trim().isNotEmpty &&
         _itens.containsKey(user.id)) {
       _itens.update(user.id, (_) => user);
+      notifyListeners();
     } else {
-      final id = Random().nextDouble().toString();
       _itens.putIfAbsent(
           '100',
           () => User(
-              id: id,
+              id: user.id,
               name: user.name,
               email: user.email,
               cpf: user.cpf,
@@ -46,12 +46,12 @@ class Users with ChangeNotifier {
 
       notifyListeners();
     }
+  }
 
-    void remove(User user) {
-      if (user != null && user.id != null) {
-        _itens.remove(user.id);
-        notifyListeners();
-      }
+  void remove(User user) {
+    if (user != null && user.id != null) {
+      _itens.remove(user.id);
+      notifyListeners();
     }
   }
 }
